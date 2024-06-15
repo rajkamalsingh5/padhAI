@@ -1,0 +1,117 @@
+.main{
+    flex: 1;
+    min-height: 150vh;
+    padding-bottom: 15vh;
+    position: relative;
+    // background-color: white;
+>.nav
+{
+    margin-top: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 22px;
+    padding: 20px;
+    color:white;
+>p{
+    border-bottom: 2px solid white;
+}
+}
+>.main-container
+{
+    min-width: 100vw;
+    margin: auto;
+    >.greet
+    {
+        margin: 50px 0px;
+        font-size: 4rem;
+        color: white; 
+        font-weight: 500;
+        padding: 10px;
+            >p span{
+                color:#2d80fd9e;
+            }
+            > svg {
+                position: absolute;
+                font-size: 4rem;
+                color: white;
+                left: 50%;
+                bottom: 15%;
+                transform: translateX(-50%);
+                animation: animateSvg 0.7s infinite linear alternate;
+              }
+              @keyframes animateSvg {
+                to {
+                  transform: translate(-50%, -10px);
+                }
+              }
+              
+              @keyframes upanddown {
+                to {
+                  transform: translateY(-5px);
+                }
+              }
+              
+              @keyframes upupdowndown {
+                to {
+                  transform: translateY(-10px);
+                }
+              }
+    }
+}
+}
+.main-bottom
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    // max-width: 900px;
+    padding: 0px 200px;
+    margin-top: 3rem;
+    >.search-box{
+       > svg{
+            font-size: 1.4rem;
+            color: wheat;
+            background-color: red;
+            cursor: pointer;
+        }
+        width:100%;
+        margin-top: 30rem;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        justify-content: space-between;
+        gap: 20px;
+        background-color: rgba(128, 128, 128, 0.148);
+        padding: 10px 20px;
+        border-radius: 15px;
+
+        >input{
+            width: 90%;
+            padding: 8px;
+            border: none;
+            background:transparent;
+            color: white;
+            outline: none;
+            }
+                ::placeholder{
+                    color: white;
+                    font-size: larger;
+                }
+        
+         
+    }
+}
+.result{
+    padding: 0px 5px;
+    max-height: 70vh;
+    width: 80%;
+    overflow-y: scroll;
+}
+@media (max-width:500px) 
+{
+    .main-bottom > .search-box {
+        width: 90vw;
+        margin-left: -13rem;
+    }
+}
