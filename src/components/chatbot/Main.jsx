@@ -6,7 +6,7 @@ import {  BsChevronDown } from "react-icons/bs";
 
 const Main = () => {
 
-    const {onSent,recentPrompt,showResult,loading,resultData,setInput,input} = useContext(Context)
+    const {onSent,recentPrompt,showResult,resultData,setInput,input} = useContext(Context)
 
 
   return (

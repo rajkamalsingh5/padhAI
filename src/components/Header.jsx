@@ -21,7 +21,7 @@ import { AiOutlineMenu } from "react-icons/ai";
     <nav className={`${sticky?`scrolled`:""}`}>
     <motion.div initial ={{x:"-100%"}} whileInView={{x:0}}>
     <FaGraduationCap/>
-    <p style={{fontSize:"2rem" }}>padh<span style={{fontSize:"2rem", color:"red",fontSize:"larger"}}>AI</span></p>
+    <p style={{fontSize:"2rem" }}>padh<span style={{ color:"red",fontSize:"larger"}}>AI</span></p>
     </motion.div>
     <div className='items'>
         <ul className={Menu?'':'hide'}>
