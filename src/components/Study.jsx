@@ -13,16 +13,6 @@ const Study = () => {
             showThumbs={false}
             infiniteLoop={true}
           >
-            <div className="workItem">
-              <iframe src="https://docs.google.com/document/d/1bX6bOHKqZLZBGN981P5KOlh9657Vyd42ib3Z7ySWBuI/preview" title="Doc-a" width="640" height="415" allow="autoplay" border="none" overflow="hidden"></iframe>
-                <aside>
-                  <h3>Computer Net.</h3>
-                  <b> Computer networking is the practice of connecting computers and other devices to share resources, data, and applications. </b>
-                  <a target="blank" href="https://www.geeksforgeeks.org/last-minute-notes-computer-network/">
-                    Explore
-                  </a>
-                </aside>
-              </div>
               
 
            <div className="workItem">
@@ -36,6 +26,16 @@ const Study = () => {
                 </aside>
               </div>
 
+            <div className="workItem">
+              <iframe src="https://docs.google.com/document/d/1bX6bOHKqZLZBGN981P5KOlh9657Vyd42ib3Z7ySWBuI/preview" title="Doc-a" width="640" height="415" allow="autoplay" border="none" overflow="hidden"></iframe>
+                <aside>
+                  <h3>Computer Net.</h3>
+                  <b> Computer networking is the practice of connecting computers and other devices to share resources, data, and applications. </b>
+                  <a target="blank" href="https://www.geeksforgeeks.org/last-minute-notes-computer-network/">
+                    Explore
+                  </a>
+                </aside>
+              </div>
            <div className="workItem">
            <iframe src="https://drive.google.com/file/d/1YHJktzBS2s2Q0A93jBuo6kbbXlSU1b_H/preview" title="Doc-c" width="640" height="415" allow="autoplay" border="none" overflow="hidden"></iframe>
                 <aside>
@@ -59,22 +59,22 @@ const Study = () => {
                 </aside>
               </div>
               <div className="workItem">
-              <iframe src= "https://docs.google.com/document/d/1sQlRDw6--HwyxeFL7b4kBsOG-Tz7rXMbpWNnfvJErA4/preview" title="Doc-e" width="640" height="415" allow="autoplay"  border="none" overflow="hidden"></iframe>
-                <aside>
-                  <h3> Core Sheet</h3>
-                  <b>Test Your Knowledge of previous studies by solving these questions.</b>
-                  <a target="blank" href="https://docs.google.com/document/u/0/d/1sQlRDw6--HwyxeFL7b4kBsOG-Tz7rXMbpWNnfvJErA4/mobilebasic">
-                  Explore
-                  </a>
-                </aside>
-              </div>
-              <div className="workItem">
               
               <iframe src= "https://docs.google.com/spreadsheets/u/0/d/12l4Tc_zPgtFdWCHDDHZVMxC8pbjL4BzHzoVcHdleOb0/preview" title="Doc-f" width="640" height="415" allow="autoplay" border="none" overflow="hidden"></iframe>
                 <aside>
                   <h3>D.S.A</h3>
                   <b>(DSA) are fundamental concepts in computer science that focus on the efficient organization and manipulation of data</b>
                   <a href="https://www.geeksforgeeks.org/lmns-data-structures/" target="blank">
+                  Explore
+                  </a>
+                </aside>
+              </div>
+              <div className="workItem">
+              <iframe src= "https://docs.google.com/document/d/1sQlRDw6--HwyxeFL7b4kBsOG-Tz7rXMbpWNnfvJErA4/preview" title="Doc-e" width="640" height="415" allow="autoplay"  border="none" overflow="hidden"></iframe>
+                <aside>
+                  <h3> Core Sheet</h3>
+                  <b>Test Your Knowledge of previous studies by solving these questions.</b>
+                  <a target="blank" href="https://docs.google.com/document/u/0/d/1sQlRDw6--HwyxeFL7b4kBsOG-Tz7rXMbpWNnfvJErA4/mobilebasic">
                   Explore
                   </a>
                 </aside>
