@@ -1,77 +1,68 @@
-import { createContext, useState  } from "react";
+import { createContext, useState } from "react";
 import runChat from "../config/gemini";
 
-export const  Context = createContext();
+export const Context = createContext();
 
 const ContextProvider = (props) => {
-    const [input,setInput] = useState("");
-    const [recentPrompt,setRecentPrompt] = useState("");
-    const [prevPrompts,setPrevPrompts]= useState([]);
-    const [showResult,setShowResult] = useState(false);
-    const [loading,setLoading] = useState(false);
+    const [input, setInput] = useState("");
+    const [recentPrompt, setRecentPrompt] = useState("");
+    const [prevPrompts, setPrevPrompts] = useState([]);
+    const [showResult, setShowResult] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [resultData, setResultData] = useState("");
-    const delaypara = (index,nextWord) => {
-        setTimeout(function() {
-            setResultData(prev=>prev+nextWord);
-            
-        },75*index)
 
+    const delaypara = (index, nextWord) => {
+        setTimeout(() => {
+            setResultData((prev) => prev + nextWord);
+        }, 75 * index);
+    };
 
-    }
     const newChat = () => {
-        setLoading(false)
-        setShowResult(false)
-    }
-
-
-
-
-
-
+        setLoading(false);
+        setShowResult(false);
+        setResultData(""); //
+    };
 
     const onSent = async (prompt) => {
-        
-        setResultData("")
-        setLoading(true)
-        setShowResult(true)
+        setResultData(""); 
+        setLoading(true);
+        setShowResult(true);
+
         let response;
-        if(prompt !== undefined) {
-            response = await runChat (prompt);
-            setRecentPrompt(prompt)
+        let query = prompt !== undefined ? prompt : input;
 
-        }
-        else
-        {
-            setPrevPrompts(prev=>[...prev,input])
-            setRecentPrompt(input)
-            response = await runChat(input)
-        }
-        
-       let responseArray = response.split("**");
-       let newResponse ="";//to remove undfined term -_-)
-       for (let i = 0;i< responseArray.length; i++)
-       {
-        if (i ===0 || i%2 !==1){
-            newResponse += responseArray[i];
-        }
-        else{
-            newResponse += "<b>"+responseArray[i]+"</b>";
+        setPrevPrompts((prev) => [...prev, query]);
+        setRecentPrompt(query);
 
+        try {
+            response = await runChat(query);
+            if (!response) {
+                throw new Error("Invalid response from API");
+            }
+
+            const responseText = response?.parts?.[0]?.text || "Error: No response received.";
+            let responseArray = responseText.split("**");
+            let newResponse = "";
+
+            for (let i = 0; i < responseArray.length; i++) {
+                newResponse += i % 2 === 1 ? `<b>${responseArray[i]}</b>` : responseArray[i];
+            }
+
+            let formattedResponse = newResponse.split("*").join("<br/>");
+
+            let responseWords = formattedResponse.split(" ");
+            responseWords.forEach((word, index) => {
+                delaypara(index, word + " ");
+            });
+
+        } catch (error) {
+            console.error("Error in onSent:", error);
+            setResultData("Error: Unable to generate a response.");
         }
 
-        
-       }
-       let newResponse2 = newResponse.split("*").join("</br>")
-       let newResponseArray = newResponse2.split(" ");
-       for(let i= 0; i< newResponseArray.length;i++)
-       {
-        const nextWord = newResponseArray[i];
-        delaypara(i,nextWord+" ")
-       }
-       setLoading(false)
-       setInput("")
-    }
-    
+        setLoading(false);
+        setInput("");
+    };
 
     const contextValue = {
         prevPrompts,
@@ -84,14 +75,10 @@ const ContextProvider = (props) => {
         resultData,
         input,
         setInput,
-        newChat
-    }
+        newChat,
+    };
 
-    return (
-        <Context.Provider value={contextValue} >
-            { props.children }
-        </Context.Provider>
+    return <Context.Provider value={contextValue}>{props.children}</Context.Provider>;
+};
 
-    )
-}
-export default ContextProvider
+export default ContextProvider;
