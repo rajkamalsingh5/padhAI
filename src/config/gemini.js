@@ -1,5 +1,5 @@
 
-// const API_KEY="";
+// const API_KEY="xyz";
 
 import {
   GoogleGenerativeAI,
@@ -7,8 +7,8 @@ import {
   HarmBlockThreshold,
 } from "@google/generative-ai";
 
-const MODEL_NAME = "gemini-2.0-flash"; // Fix: Use correct model name
-const API_KEY = "AIzaSyAClrOoTo6Gb3RYUWAz1YxyqOBMAP_W84A"; // Replace with your valid API key
+const MODEL_NAME = "gemini-2.0-flash"; 
+const API_KEY = "AIzaSyAClrOoTo6Gb3RYUWAz1YxyqOBMAP_W84A"; // mitro kindly use ur owm api key 😁 as i do not want to make env file 
 
 async function runChat(prompt) {
   const genAI = new GoogleGenerativeAI(API_KEY);
